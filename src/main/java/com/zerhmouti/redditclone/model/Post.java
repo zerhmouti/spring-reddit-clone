@@ -13,9 +13,10 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Post {
+    public Long getPostId;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long postId;
+    private Long postId;
     private String postName;
     private String url;
     @Lob
@@ -26,6 +27,6 @@ public class Post {
     private User user;
     private Instant createdDate;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id",referencedColumnName = "id")
+    @JoinColumn(name="subreddit_id",referencedColumnName = "id")
     private Subreddit subreddit;
 }
